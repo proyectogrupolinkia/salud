@@ -66,6 +66,9 @@ class MostrarUsuario : AppCompatActivity() {
         intent.putExtra("USER_EDAD", user.edad)
         intent.putExtra("USER_PESO", user.peso)
         intent.putExtra("USER_ALTURA", user.altura)
+
+        val IMC = user.calculaIMC(user.peso,user.altura)
+        intent.putExtra("USER_IMC",IMC)
         startActivity(intent)
 
     }
