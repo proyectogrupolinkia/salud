@@ -60,6 +60,7 @@ class ConsultarUsuario : AppCompatActivity() {
                 finish()
                 true
             }
+            //
 
             R.id.action_back -> {
                 // Finaliza la activity actual para volver a la anterior
