@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- Botón Home: lleva a la Activity principal -->
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_home"
+    android:title="Home"
+    app:showAsAction="always" />
+    <!-- Botón Retroceso: finaliza la activity actual -->
+    <item
+        android:id="@+id/action_back"
+        android:icon="@drawable/ic_back"
+    android:title="Back"
+    app:showAsAction="always"/>
+</menu>

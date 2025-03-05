@@ -2,27 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     android:background="@color/white"
     tools:context=".MainActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FCFFFE"
+        app:title="Principal"
+        app:titleTextColor="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
 
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menú Principal"
+        android:text="@string/men_principal"
         android:textSize="26sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp" />
+        android:layout_marginTop="0dp" />
 
     <LinearLayout
         android:id="@+id/linearLayoutBotones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitulo"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
@@ -76,11 +87,13 @@
     <ImageView
         android:id="@+id/imageViewBalanza"
         android:layout_width="380dp"
-        android:layout_height="300dp"
+        android:layout_height="100dp"
         android:src="@drawable/vascula"
         android:layout_below="@id/linearLayoutBotones"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="1dp"
+        />
+
 
 </RelativeLayout>
 

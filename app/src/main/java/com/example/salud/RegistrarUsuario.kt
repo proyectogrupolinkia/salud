@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+
 
 class RegistrarUsuario : AppCompatActivity() {
     private lateinit var dbHelper: SQLiteHelper
@@ -25,6 +29,9 @@ class RegistrarUsuario : AppCompatActivity() {
         val editTextPeso = findViewById<EditText>(R.id.etPeso)
         val editTextAltura = findViewById<EditText>(R.id.etAltura)
         val buttonEnviar = findViewById<Button>(R.id.btnEnviar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
 
         // Acciones cuando el botón es presionado
         buttonEnviar.setOnClickListener {
@@ -34,6 +41,7 @@ class RegistrarUsuario : AppCompatActivity() {
             val edad = editTextEdad.text.toString()
             val peso = editTextPeso.text.toString()
             val altura = editTextAltura.text.toString()
+
 
             // Validar que todos los campos estén completos
             if (nombre.isEmpty() || correo.isEmpty() || edad.isEmpty() || peso.isEmpty() || altura.isEmpty()) {
@@ -50,5 +58,31 @@ class RegistrarUsuario : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_home -> {
+                // Regresa a la actividad principal
+                val intent = Intent(this, MainActivity::class.java)
+                // Opcional: Limpiar la pila de activities para evitar volver atrás
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+                true
+            }
+
+            R.id.action_back -> {
+                // Finaliza la activity actual para volver a la anterior
+                finish()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
