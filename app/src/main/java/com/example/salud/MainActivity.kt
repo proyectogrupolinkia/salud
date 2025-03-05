@@ -47,10 +47,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent (this, EliminarUsuario::class.java)
             startActivity(intent)
         }
-//        botonIMC.setOnClickListener {
-//            val intent = Intent(this, IMCActivity::class.java)
-//            startActivity(intent)
-//        }
+        botonIMC.setOnClickListener {
+           val intent = Intent(this, IMCActivity::class.java)
+           startActivity(intent)
+       }
 
 
     }
