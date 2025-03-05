@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menú Principal"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBotones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvTitulo"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/buttonRegistrar"
+            style="@style/CustomButton"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Registrar Usuarios"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonMostrar"
+            style="@style/CustomButton"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Mostrar Usuarios"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonModificar"
+            style="@style/CustomButton"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Modificar Usuarios"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonEliminar"
+            style="@style/CustomButton"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Eliminar Usuarios"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+        <Button
+            android:id="@+id/buttonIMC"
+            style="@style/CustomButton"
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:text="Calculadora IMC"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewBalanza"
+        android:layout_width="380dp"
+        android:layout_height="300dp"
+        android:src="@drawable/vascula"
+        android:layout_below="@id/linearLayoutBotones"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"/>
+
+</RelativeLayout>
+
+

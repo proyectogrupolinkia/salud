@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">salud</string>
+    <string name="correo">Correo: </string>
+    <string name="nombre">Nombre: </string>
+    <string name="edad">Edad: </string>
+    <string name="peso">Peso: </string>
+    <string name="altura">Altura: </string>
+    <string name="imc">IMC:</string>
+</resources>

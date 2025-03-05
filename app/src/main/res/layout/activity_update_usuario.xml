@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:layout_marginTop="10dp"
+android:background="@drawable/stylo_borde_textview"
+android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/stylo_borde_textview">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:text="@string/nombre" />
+
+        <EditText
+         android:id="@+id/etNombrefijo"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+            android:gravity="start"
+         android:textSize="20sp"
+         android:inputType="textPersonName" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview">
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:textSize="20sp"
+             android:textStyle="bold"
+             android:textAllCaps="true"
+             android:text="@string/correo"             />
+
+         <EditText
+              android:id="@+id/etCorreofijo"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="start"
+              android:textSize="20sp"
+              android:inputType="textEmailAddress" />
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.divider.MaterialDivider>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="@string/edad"
+         />
+        <EditText
+            android:id="@+id/etEdadfijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="start"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview">
+
+
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="@string/peso"/>
+         <EditText
+            android:id="@+id/etPesofijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:gravity="start"
+
+            android:textSize="20sp"
+            android:inputType="numberDecimal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="@string/altura"      />
+        <EditText
+            android:id="@+id/etAlturafijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+
+            android:textSize="20sp"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview">
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btActualizar"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actualizar" />
+
+</LinearLayout>
