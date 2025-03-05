@@ -29,6 +29,7 @@ class RegistrarUsuario : AppCompatActivity() {
         val editTextPeso = findViewById<EditText>(R.id.etPeso)
         val editTextAltura = findViewById<EditText>(R.id.etAltura)
         val buttonEnviar = findViewById<Button>(R.id.btnEnviar)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 

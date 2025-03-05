@@ -2,9 +2,12 @@ package com.example.salud
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,6 +28,9 @@ class MostrarUsuario : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = MostrarUserAdapter(emptyList(),onEditClick = { user -> editUser(user) })
         recyclerView.adapter = adapter
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -71,6 +77,31 @@ class MostrarUsuario : AppCompatActivity() {
         intent.putExtra("USER_IMC",IMC)
         startActivity(intent)
 
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_home -> {
+                // Regresa a la actividad principal
+                val intent = Intent(this, MainActivity::class.java)
+                // Opcional: Limpiar la pila de activities para evitar volver atrás
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+                finish()
+                true
+            }
+
+            R.id.action_back -> {
+                // Finaliza la activity actual para volver a la anterior
+                finish()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     }
