@@ -26,6 +26,7 @@
         android:background="@drawable/stylo_borde_textview"
         android:orientation="horizontal">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
