@@ -2,8 +2,10 @@ package com.example.salud
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -61,22 +63,27 @@ class EliminarUsuario : AppCompatActivity() {
             }
         })
 
+
     } private fun editUser(user: User) {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Confirmar eliminación")
+        builder.setMessage("¿Está seguro que desea eliminar al usuario?")
+        builder.setPositiveButton("Sí") { dialog, _ ->
+
         dbHelper = SQLiteHelper(this)
 
         dbHelper.deleteUser(user.id)
         Toast.makeText(this, "Usuario eliminado con nombre: ${user.nombre}", Toast.LENGTH_SHORT).show()
 
-//        val intent = Intent(this, UpdateUsuario::class.java)
-//
-//        intent.putExtra("USER_ID", user.id)
-//
-//        intent.putExtra("USER_NAME", user.nombre)
-//        intent.putExtra("USER_MAIL", user.correo)
-//        intent.putExtra("USER_EDAD", user.edad)
-//        intent.putExtra("USER_PESO", user.peso)
-//        intent.putExtra("USER_ALTURA", user.altura)
-//        startActivity(intent)
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            // Cancelar la eliminación y cerrar el diálogo
+            dialog.dismiss()
+        }
+        val dialogo = builder.create()
+        dialogo.show()
 
     }
 
