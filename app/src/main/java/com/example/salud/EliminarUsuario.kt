@@ -1,8 +1,6 @@
 package com.example.salud
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -27,7 +25,7 @@ class EliminarUsuario : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = EliminarUserAdapter(
             emptyList(),
-            onEditClick = { user -> editUser(user) })
+            onDeleteClick = { user -> deleteUser(user) })
         recyclerView.adapter = adapter
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -64,7 +62,7 @@ class EliminarUsuario : AppCompatActivity() {
         })
 
 
-    } private fun editUser(user: User) {
+    } private fun deleteUser(user: User) {
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirmar eliminación")
