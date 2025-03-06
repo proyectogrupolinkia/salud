@@ -7,4 +7,7 @@
     <string name="altura">Altura: </string>
     <string name="imc">IMC:</string>
     <string name="men_principal">Menú Principal</string>
+    <string name="estado_usuario">Estado Usuario</string>
+    <string name="calculadora_imc">Calculadora IMC</string>
+    <string name="registrar_usuarios">Registrar Usuarios</string>
 </resources>

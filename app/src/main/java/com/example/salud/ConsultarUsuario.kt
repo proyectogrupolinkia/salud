@@ -26,6 +26,7 @@ class ConsultarUsuario : AppCompatActivity() {
         val textViewEdadfijo = findViewById<TextView>(R.id.tvEdadfijo)
         val textViewPesofijo = findViewById<TextView>(R.id.tvPesofijo)
         val textViewAlturafijo = findViewById<TextView>(R.id.tvAlturafijo)
+        val textViewIMC=findViewById<TextView>(R.id.tvIMC)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -35,13 +36,14 @@ class ConsultarUsuario : AppCompatActivity() {
         val ConsultaEdadfijo= intent.getIntExtra("USER_EDAD",0)
         val ConsultaPesofijo= intent.getDoubleExtra("USER_PESO",0.0)
         val ConsultaAlturafijo= intent.getDoubleExtra("USER_ALTURA",0.0)
+        val IMC= intent.getDoubleExtra("USER_IMC",0.0)
 
         textViewNombrefijo.text=" "+ConsultaNombrefijo.toString()
         textViewCorreofijo.text=" "+ConsultaCorreofijo.toString()
         textViewEdadfijo.text=" "+ConsultaEdadfijo.toString()
         textViewPesofijo.text=" "+ConsultaPesofijo.toString()+" Kg"
         textViewAlturafijo.text=" "+ConsultaAlturafijo.toString()+" cms"
-
+        textViewIMC.text=" "+IMC.toString()
 
 
     }

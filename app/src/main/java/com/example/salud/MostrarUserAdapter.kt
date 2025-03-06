@@ -9,17 +9,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class MostrarUserAdapter(private var users: List<User>, private val onEditClick: (User) -> Unit) : RecyclerView.Adapter<MostrarUserAdapter.UserViewHolder>() {
+class MostrarUserAdapter(private var users: List<User>,
+                         private val onEditClick: (User)-> Unit,
+                         private val onUpdateClick: (User) -> Unit,
+                         private val onDeleteClick: (User) -> Unit) : RecyclerView.Adapter<MostrarUserAdapter.UserViewHolder>() {
 
 
     class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.tvName)
         val textView2: TextView = view.findViewById(R.id.tvCorreo)
-//        val textView3: TextView = view.findViewById(R.id.tvEdad)
-//        val textView4: TextView = view.findViewById(R.id.tvPeso)
-//        val textView5: TextView = view.findViewById(R.id.tvAltura)
-        val btnConsultar: Button =view.findViewById(R.id.btnConsultar)
 
+        val btnConsultar: Button =view.findViewById(R.id.btnConsultar)
+        val btnModificar: Button =view.findViewById(R.id.btnModificar)
+        val btnEliminar: Button =view.findViewById(R.id.btnEliminar)
 
     }
 
@@ -32,12 +34,12 @@ class MostrarUserAdapter(private var users: List<User>, private val onEditClick:
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
         holder.btnConsultar.setOnClickListener {  onEditClick (user)}
+        holder.btnModificar.setOnClickListener {  onUpdateClick (user)}
+        holder.btnEliminar.setOnClickListener {  onDeleteClick (user)}
 
         holder.textView.text = user.nombre
         holder.textView2.text = user.correo
-//        holder.textView3.text = user.edad.toString()
-//        holder.textView4.text = user.peso.toString()
-//        holder.textView5.text = user.altura.toString()
+
 
 
 

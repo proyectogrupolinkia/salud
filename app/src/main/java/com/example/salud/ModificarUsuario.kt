@@ -1,5 +1,6 @@
 package com.example.salud
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -32,6 +33,7 @@ class ModificarUsuario : AppCompatActivity() {
                 // Cuando el usuario hace submit, no haremos nada por ahora
                 return false
             }
+            @SuppressLint("Range")
             override fun onQueryTextChange(newText: String?): Boolean {
                 // Filtrar los usuarios según el texto ingresado
                 val cursor = dbHelper.getAllUsers()

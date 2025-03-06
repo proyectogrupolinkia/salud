@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
+    android:layout_marginTop="100dp"
     android:background="@color/white"
     tools:context=".MainActivity">
     <androidx.appcompat.widget.Toolbar
@@ -42,7 +43,7 @@
             style="@style/CustomButton"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:text="Registrar Usuarios"
+            android:text="@string/registrar_usuarios"
             android:textSize="18sp"
             android:layout_marginBottom="16dp"/>
 
@@ -51,34 +52,34 @@
             style="@style/CustomButton"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:text="Mostrar Usuarios"
+            android:text="@string/estado_usuario"
             android:textSize="18sp"
             android:layout_marginBottom="16dp"/>
 
-        <Button
-            android:id="@+id/buttonModificar"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Modificar Usuarios"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
+<!--        <Button-->
+<!--            android:id="@+id/buttonModificar"-->
+<!--            style="@style/CustomButton"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="75dp"-->
+<!--            android:text="Modificar Usuarios"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_marginBottom="16dp"/>-->
 
-        <Button
-            android:id="@+id/buttonEliminar"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Eliminar Usuarios"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
+<!--        <Button-->
+<!--            android:id="@+id/buttonEliminar"-->
+<!--            style="@style/CustomButton"-->
+<!--            android:layout_width="300dp"-->
+<!--            android:layout_height="75dp"-->
+<!--            android:text="Eliminar Usuarios"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_marginBottom="16dp"/>-->
 
         <Button
             android:id="@+id/buttonIMC"
             style="@style/CustomButton"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:text="Calculadora IMC"
+            android:text="@string/calculadora_imc"
             android:textSize="18sp"
             android:layout_marginBottom="16dp"/>
 
