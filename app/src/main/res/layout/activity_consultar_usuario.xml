@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_marginTop="50dp"
     android:layout_marginBottom="100dp"
     android:background="@drawable/stylo_borde_textview"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,33 +15,32 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="Consultar Usuario"
-        app:titleTextColor="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:titleTextColor="@android:color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/stylo_borde_textview">
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stylo_borde_textview"
+        android:orientation="horizontal">
 
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:text="@string/nombre" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
-         android:id="@+id/tvNombrefijo"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
+            android:id="@+id/tvNombrefijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="start"
-         android:textSize="20sp"
-         android:inputType="textPersonName" />
-
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
 
 
     </LinearLayout>
@@ -48,25 +48,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview">
+        android:background="@drawable/stylo_borde_textview"
+        android:orientation="horizontal">
 
-         <TextView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:textSize="20sp"
-             android:textStyle="bold"
-             android:textAllCaps="true"
-             android:text="@string/correo"             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/correo"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-         <TextView
-              android:id="@+id/tvCorreofijo"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="start"
-              android:textSize="20sp"
-              android:inputType="textEmailAddress" />
+        <TextView
+            android:id="@+id/tvCorreofijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:inputType="textEmailAddress"
+            android:textSize="20sp"
+            tools:ignore="ExtraText" />
+
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -77,79 +79,105 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview">
+        android:background="@drawable/stylo_borde_textview"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAllCaps="true"
             android:text="@string/edad"
-         />
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tvEdadfijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:gravity="start"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview">
-
-
-         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:text="@string/peso"/>
-         <TextView
-            android:id="@+id/tvPesofijo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-             android:gravity="start"
-
-            android:textSize="20sp"
-            android:inputType="numberDecimal" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview">
+        android:background="@drawable/stylo_borde_textview"
+        android:orientation="horizontal">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:text="@string/peso"
             android:textAllCaps="true"
-            android:text="@string/altura"      />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPesofijo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:inputType="numberDecimal"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/altura"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tvAlturafijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start"
 
-            android:textSize="20sp"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/stylo_borde_textview"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IMC:"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvIMC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:inputType="number"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

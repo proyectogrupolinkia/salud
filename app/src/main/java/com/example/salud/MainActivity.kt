@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         //Atributos
         val botonRegistrar = findViewById<Button>(R.id.buttonRegistrar)
         val botonMostrar = findViewById<Button>(R.id.buttonMostrar)
-        val botonModificar = findViewById<Button>(R.id.buttonModificar)
-        val botonEliminar = findViewById<Button>(R.id.buttonEliminar)
+        //val botonModificar = findViewById<Button>(R.id.buttonModificar)
+        //  val botonEliminar = findViewById<Button>(R.id.buttonEliminar)
         val botonIMC = findViewById<Button>(R.id.buttonIMC)
         val toolbar: Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
@@ -46,20 +46,20 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MostrarUsuario::class.java)
             startActivity(intent)
         }
-
-        botonModificar.setOnClickListener {
-            val intent = Intent(this, ModificarUsuario::class.java)
-            startActivity(intent)
-        }
-
-        botonEliminar.setOnClickListener {
-            val intent = Intent (this, EliminarUsuario::class.java)
-            startActivity(intent)
-        }
         botonIMC.setOnClickListener {
-           val intent = Intent(this, IMCActivity::class.java)
-           startActivity(intent)
-       }
+            val intent = Intent(this, IMCActivity::class.java)
+            startActivity(intent)
+        }
+//        botonModificar.setOnClickListener {
+//            val intent = Intent(this, ModificarUsuario::class.java)
+//            startActivity(intent)
+//        }
+//
+//        botonEliminar.setOnClickListener {
+//            val intent = Intent (this, EliminarUsuario::class.java)
+//            startActivity(intent)
+        }
+
 
 
 
@@ -67,4 +67,3 @@ class MainActivity : AppCompatActivity() {
 
 
 
-}
