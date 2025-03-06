@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 
 class ConsultarUsuario : AppCompatActivity() {
     private lateinit var dbHelper: SQLiteHelper
+    //
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
