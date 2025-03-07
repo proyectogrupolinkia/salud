@@ -62,6 +62,9 @@ class MostrarUsuario : AppCompatActivity() {
                         if (nombre.contains(newText!!, true)) {
                             users.add(User(id, nombre,correo, edad.toInt(),peso.toDouble(),altura.toDouble()))
                         }
+                        if (correo.contains(newText!!, true)) {
+                            users.add(User(id, nombre,correo, edad.toInt(),peso.toDouble(),altura.toDouble()))
+                        }
                     } while (cursor.moveToNext())
                 }
 

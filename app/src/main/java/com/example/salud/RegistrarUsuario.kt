@@ -68,7 +68,15 @@ class RegistrarUsuario : AppCompatActivity() {
             else  {
                 // Mostrar los datos en un Toast (o lo que desees hacer con ellos)
                 val result = dbHelper.insertUser(nombre, correo, edad.toInt(), peso.toDouble(), altura.toDouble())
-                Toast.makeText(this, "Usuario insertado con nombre: $nombre", Toast.LENGTH_SHORT).show()
+                if(result) {
+                    Toast.makeText(
+                        this,
+                        "Usuario insertado con nombre: $nombre",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }else{
+                    Toast.makeText(this, "El correo ya está registrado", Toast.LENGTH_SHORT).show()
+                }
 
             }
 
