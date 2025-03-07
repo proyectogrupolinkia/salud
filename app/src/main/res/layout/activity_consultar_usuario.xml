@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="40dp"
     android:layout_marginBottom="100dp"
-    android:background="@drawable/stylo_borde_textview"
     android:orientation="vertical"
     android:padding="16dp">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="Consultar Usuario"
@@ -22,18 +21,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/stylo_borde_textview"
+        android:layout_marginTop="20dp"
+        android:background="#f0f0f0"
         android:orientation="horizontal">
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="@string/nombre"
+            android:textAlignment="center"
             android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/stylo_borde_textview"/>
 
         <TextView
             android:id="@+id/tvNombrefijo"
@@ -41,6 +43,8 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:inputType="textPersonName"
+            android:textColor="#333333"
+            android:background="@drawable/stylo_borde_textview"
             android:textSize="20sp" />
 
 
@@ -50,15 +54,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview"
+        android:background="#f0f0f0"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="@string/correo"
+            android:textAlignment="center"
             android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="20sp"
+            android:background="@drawable/stylo_borde_textview"
             android:textStyle="bold" />
 
         <TextView
@@ -66,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="start"
+            android:background="@drawable/stylo_borde_textview"
             android:inputType="textEmailAddress"
             android:textSize="20sp"
             tools:ignore="ExtraText" />
@@ -81,21 +89,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview"
+        android:background="#f0f0f0"
+
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="@string/edad"
             android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textAlignment="center"
             android:textSize="20sp"
+            android:background="@drawable/stylo_borde_textview"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvEdadfijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/stylo_borde_textview"
             android:gravity="start"
             android:textSize="20sp" />
 
@@ -105,15 +118,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview"
+        android:background="#f0f0f0"
         android:orientation="horizontal">
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="@string/peso"
+            android:textAlignment="center"
             android:textAllCaps="true"
+            android:background="@drawable/stylo_borde_textview"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -121,6 +137,7 @@
             android:id="@+id/tvPesofijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/stylo_borde_textview"
             android:gravity="start"
             android:inputType="numberDecimal"
             android:textSize="20sp" />
@@ -131,15 +148,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview"
+        android:background="#f0f0f0"
         android:orientation="horizontal">
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="@string/altura"
+            android:textAlignment="center"
+            android:background="@drawable/stylo_borde_textview"
             android:textAllCaps="true"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -147,6 +167,7 @@
             android:id="@+id/tvAlturafijo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/stylo_borde_textview"
             android:gravity="start"
 
             android:inputType="number"
@@ -158,15 +179,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/stylo_borde_textview"
+        android:background="#f0f0f0"
         android:orientation="horizontal">
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:text="IMC:"
+            android:textAlignment="center"
             android:textAllCaps="true"
+            android:background="@drawable/stylo_borde_textview"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -174,6 +198,7 @@
             android:id="@+id/tvIMC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/stylo_borde_textview"
             android:gravity="start"
             android:inputType="number"
             android:textSize="20sp" />
