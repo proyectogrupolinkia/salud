@@ -14,22 +14,22 @@ import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class MostrarUsuario : AppCompatActivity() {
+class GestionarUsuario : AppCompatActivity() {
     private lateinit var dbHelper: SQLiteHelper
-    private lateinit var adapter: MostrarUserAdapter
+    private lateinit var adapter: GestionarUserAdapter
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
-        setContentView(R.layout.activity_mostrar_usuario)
+        setContentView(R.layout.activity_gestionar_usuario)
 
         dbHelper = SQLiteHelper(this)
         val searchView: SearchView = findViewById(R.id.searchView)
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = MostrarUserAdapter(emptyList(),onEditClick = { user -> editUser(user) },
+        adapter = GestionarUserAdapter(emptyList(),onReadClick = { user -> readUser(user) },
             onUpdateClick = { user -> updateUser(user) },
             onDeleteClick = { user -> deleteUser(user) })
         recyclerView.adapter = adapter
@@ -87,7 +87,7 @@ class MostrarUsuario : AppCompatActivity() {
         )
 
 
-    } private fun editUser(user: User) {
+    } private fun readUser(user: User) {
         val intent = Intent(this, ConsultarUsuario::class.java)
         intent.putExtra("USER_NAME", user.nombre)
         intent.putExtra("USER_MAIL", user.correo)

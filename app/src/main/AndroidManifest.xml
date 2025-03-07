@@ -19,7 +19,7 @@
             android:name=".ModificarUsuario"
             android:exported="false" />
         <activity
-            android:name=".MostrarUsuario"
+            android:name=".GestionarUsuario"
             android:exported="false" />
         <activity
             android:name=".RegistrarUsuario"
