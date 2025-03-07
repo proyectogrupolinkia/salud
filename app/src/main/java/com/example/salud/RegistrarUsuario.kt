@@ -42,16 +42,33 @@ class RegistrarUsuario : AppCompatActivity() {
             val edad = editTextEdad.text.toString()
             val peso = editTextPeso.text.toString()
             val altura = editTextAltura.text.toString()
-
+            val regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
 
             // Validar que todos los campos estén completos
             if (nombre.isEmpty() || correo.isEmpty() || edad.isEmpty() || peso.isEmpty() || altura.isEmpty()) {
                 Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT)
                     .show()
-            } else {
+
+            } else if(!correo.matches(regexCorreo)){
+                Toast.makeText(this, "El correo electrónico no tiene un formato válido", Toast.LENGTH_SHORT)
+                        .show()
+                }else if(edad.toInt()>120){
+                Toast.makeText(this, "La edad no es correcta, por favor, vuelve a introducirla.", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            else if(peso.toInt()>200){
+                Toast.makeText(this, "El peso no es correcto, por favor, vuelve a introducirlo.", Toast.LENGTH_SHORT)
+                    .show()
+            }else if(altura.toInt()>250|| altura.toInt()<20){
+                Toast.makeText(this, "La altura no es correcta, por favor, vuelve a introducirla.", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+
+            else  {
                 // Mostrar los datos en un Toast (o lo que desees hacer con ellos)
                 val result = dbHelper.insertUser(nombre, correo, edad.toInt(), peso.toDouble(), altura.toDouble())
-                Toast.makeText(this, "Usuario insertado con ID: $result", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Usuario insertado con nombre: $nombre", Toast.LENGTH_SHORT).show()
 
             }
 
