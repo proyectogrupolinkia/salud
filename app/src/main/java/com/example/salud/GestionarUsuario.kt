@@ -22,20 +22,27 @@ class GestionarUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+//Iniciamos la barra de navegación:
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
         enableEdgeToEdge()
         setContentView(R.layout.activity_gestionar_usuario)
 
-        dbHelper = SQLiteHelper(this)
+        dbHelper = SQLiteHelper(this) //SQlite
         val searchView: SearchView = findViewById(R.id.searchView)
         recyclerView = findViewById(R.id.recyclerView)
+
+        //Invocamos al adaptodor para hacer la vista del RecyclerView
+
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = GestionarUserAdapter(emptyList(),onReadClick = { user -> readUser(user) },
+        adapter = GestionarUserAdapter(emptyList(), onReadClick = { user -> readUser(user) },
             onUpdateClick = { user -> updateUser(user) },
             onDeleteClick = { user -> deleteUser(user) })
         recyclerView.adapter = adapter
 
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+
+
 
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -47,6 +54,7 @@ class GestionarUsuario : AppCompatActivity() {
 
 
             }
+
             @SuppressLint("Range")
             override fun onQueryTextChange(newText: String?): Boolean {
                 // Filtrar los usuarios según el texto ingresado
@@ -56,28 +64,36 @@ class GestionarUsuario : AppCompatActivity() {
                 if (cursor.moveToFirst()) {
                     do {
                         val id = cursor.getInt(cursor.getColumnIndex(SQLiteHelper.COLUMN_ID))
-                        val nombre = cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_NOMBRE))
-                        val correo = cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_CORREO))
+                        val nombre =
+                            cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_NOMBRE))
+                        val correo =
+                            cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_CORREO))
                         val edad = cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_EDAD))
                         val peso = cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_PESO))
-                        val altura = cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_ALTURA))
+                        val altura =
+                            cursor.getString(cursor.getColumnIndex(SQLiteHelper.COLUMN_ALTURA))
 
 
 
-
-                        if (nombre.contains(newText!!, true)||correo.contains(newText!!, true)) {
-                            users.add(User(id, nombre,correo, edad.toInt(),peso.toDouble(),altura.toDouble()))
+                        if (nombre.contains(newText!!, true) || correo.contains(newText!!, true)) {
+                            users.add(
+                                User(
+                                    id,
+                                    nombre,
+                                    correo,
+                                    edad.toInt(),
+                                    peso.toDouble(),
+                                    altura.toDouble()
+                                )
+                            )
                         }
 
                     } while (cursor.moveToNext())
                 }
 
 
-
                 // Actualizar el RecyclerView con los resultados de búsqueda
                 adapter.updateData(users)
-
-
                 return true
 
 
@@ -86,8 +102,11 @@ class GestionarUsuario : AppCompatActivity() {
         }
         )
 
+        //Al clickar en "consultar"
 
-    } private fun readUser(user: User) {
+    }
+
+    private fun readUser(user: User) {
         val intent = Intent(this, ConsultarUsuario::class.java)
         intent.putExtra("USER_NAME", user.nombre)
         intent.putExtra("USER_MAIL", user.correo)
@@ -95,17 +114,18 @@ class GestionarUsuario : AppCompatActivity() {
         intent.putExtra("USER_PESO", user.peso)
         intent.putExtra("USER_ALTURA", user.altura)
 
-        val IMC = user.calculaIMC(user.peso,user.altura)
-        intent.putExtra("USER_IMC",IMC)
+        val IMC = user.calculaIMC(user.peso, user.altura)
+        intent.putExtra("USER_IMC", IMC)
 
         val searchView: SearchView = findViewById(R.id.searchView)
 
-        searchView.setQuery("", false)
-        adapter.updateData(emptyList())
+        searchView.setQuery("", false)//Ponemos a cero el texto del SearchView
+        adapter.updateData(emptyList()) //limpiamos la lista de Users
 
         startActivity(intent)
 
     }
+    //Al clickar en "actualizar"
 
     private fun updateUser(user: User) {
         val intent = Intent(this, UpdateUsuario::class.java)
@@ -117,15 +137,16 @@ class GestionarUsuario : AppCompatActivity() {
         intent.putExtra("USER_EDAD", user.edad)
         intent.putExtra("USER_PESO", user.peso)
         intent.putExtra("USER_ALTURA", user.altura)
-        val IMC = user.calculaIMC(user.peso,user.altura)
-        intent.putExtra("USER_IMC",IMC)
+        val IMC = user.calculaIMC(user.peso, user.altura)
+        intent.putExtra("USER_IMC", IMC)
         val searchView: SearchView = findViewById(R.id.searchView)
 
-        searchView.setQuery("", false)
-        adapter.updateData(emptyList())
+        searchView.setQuery("", false) //Ponemos a cero el texto del SearchView
+        adapter.updateData(emptyList()) //limpiamos la lista de Users
         startActivity(intent)
 
     }
+    //Al clickar en "eliminar"
 
     private fun deleteUser(user: User) {
         val builder = AlertDialog.Builder(this)
@@ -135,13 +156,14 @@ class GestionarUsuario : AppCompatActivity() {
 
             dbHelper = SQLiteHelper(this)
 
-            dbHelper.deleteUser(user.id)
-            Toast.makeText(this, "Usuario eliminado con nombre: ${user.nombre}", Toast.LENGTH_SHORT).show()
+            dbHelper.deleteUser(user.id) //Eliminamos al usuario
+            Toast.makeText(this, "Usuario eliminado con nombre: ${user.nombre}", Toast.LENGTH_SHORT)
+                .show()
             adapter.updateData(emptyList())
             val searchView: SearchView = findViewById(R.id.searchView)
 
-            searchView.setQuery("", false)
-            adapter.updateData(emptyList())
+            searchView.setQuery("", false) //Ponemos a cero el texto del SearchView
+            adapter.updateData(emptyList()) //limpiamos la lista de Users
             dialog.dismiss()
         }
         builder.setNegativeButton("No") { dialog, _ ->
@@ -152,12 +174,14 @@ class GestionarUsuario : AppCompatActivity() {
         dialogo.show()
 
 
-
     }
+
+    //Configuracion de ToolBar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_home -> {
@@ -184,4 +208,4 @@ class GestionarUsuario : AppCompatActivity() {
         }
     }
 
-    }
+}

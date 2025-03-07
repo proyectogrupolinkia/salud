@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,52 +28,92 @@ class UpdateUsuario : AppCompatActivity() {
         val etViewAlturafijo = findViewById<TextView>(R.id.etAlturafijo)
         val btActualizar = findViewById<Button>(R.id.btActualizar)
 
-        val ConsultaIDfijo= intent.getIntExtra("USER_ID",0)
 
-        val ConsultaNombrefijo= intent.getStringExtra("USER_NAME")
-        val ConsultaCorreofijo= intent.getStringExtra("USER_MAIL")
-        val ConsultaEdadfijo= intent.getIntExtra("USER_EDAD",0)
-        val ConsultaPesofijo= intent.getDoubleExtra("USER_PESO",0.0)
-        val ConsultaAlturafijo= intent.getDoubleExtra("USER_ALTURA",0.0)
+        //Actualizamos los EditText con los valores de la activity anterior
 
-//        etViewNombrefijo.text=" "+ConsultaNombrefijo.toString()
-//        etViewCorreofijo.text=" "+ConsultaCorreofijo.toString()
-//        etViewEdadfijo.text=" "+ConsultaEdadfijo.toString()
-//        etViewPesofijo.text=" "+ConsultaPesofijo.toString()+" Kg"
-//        etViewAlturafijo.text=" "+ConsultaAlturafijo.toString()+" cms"
+        val ConsultaIDfijo = intent.getIntExtra("USER_ID", 0)
 
-        etViewNombrefijo.text=ConsultaNombrefijo.toString()
-        etViewCorreofijo.text=ConsultaCorreofijo.toString()
-        etViewEdadfijo.text=ConsultaEdadfijo.toString()
-        etViewPesofijo.text=ConsultaPesofijo.toString()
-        etViewAlturafijo.text=ConsultaAlturafijo.toString()
+        val ConsultaNombrefijo = intent.getStringExtra("USER_NAME")
+        val ConsultaCorreofijo = intent.getStringExtra("USER_MAIL")
+        val ConsultaEdadfijo = intent.getIntExtra("USER_EDAD", 0)
+        val ConsultaPesofijo = intent.getDoubleExtra("USER_PESO", 0.0)
+        val ConsultaAlturafijo = intent.getDoubleExtra("USER_ALTURA", 0.0)
+
+
+        etViewNombrefijo.text = ConsultaNombrefijo.toString()
+        etViewCorreofijo.text = ConsultaCorreofijo.toString()
+        etViewEdadfijo.text = ConsultaEdadfijo.toString()
+        etViewPesofijo.text = ConsultaPesofijo.toString()
+        etViewAlturafijo.text = ConsultaAlturafijo.toString()
 
         btActualizar.setOnClickListener {
-            val nombreActualizado= etViewNombrefijo.text.toString()
-            val correoActualizado= etViewCorreofijo.text.toString()
+            val nombreActualizado = etViewNombrefijo.text.toString()
+            val correoActualizado = etViewCorreofijo.text.toString()
             val edadActualizado = etViewEdadfijo.text.toString()
-            val pesoActualizado= etViewPesofijo.text.toString()
-            val alturaActualizado= etViewAlturafijo.text.toString()
+            val pesoActualizado = etViewPesofijo.text.toString()
+            val alturaActualizado = etViewAlturafijo.text.toString()
+            val regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
+
             if (nombreActualizado.isEmpty() || correoActualizado.isEmpty() || edadActualizado.isEmpty() || pesoActualizado.isEmpty() || alturaActualizado.isEmpty()) {
                 Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_LONG)
                     .show()
+            } else if (!correoActualizado.matches(regexCorreo)) { //Verificamos el formato del correo
+                Toast.makeText(
+                    this,
+                    "El correo electrónico no tiene un formato válido",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else if (edadActualizado.toInt() > 120) {//Verificamos la edad
+                Toast.makeText(
+                    this,
+                    "La edad no es correcta, por favor, vuelve a introducirla.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else if (pesoActualizado.toInt() > 200) {//Verificamos el peso
+                Toast.makeText(
+                    this,
+                    "El peso no es correcto, por favor, vuelve a introducirlo.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else if (alturaActualizado.toInt() > 250 || alturaActualizado.toInt() < 20) {//Verificamos la altura
+                Toast.makeText(
+                    this,
+                    "La altura no es correcta, por favor, vuelve a introducirla.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
             } else {
-                // Mostrar los datos en un Toast (o lo que desees hacer con ellos)
-                 val result = dbHelper.updateUser(ConsultaIDfijo,nombreActualizado,correoActualizado,edadActualizado.toInt(),pesoActualizado.toDouble(),alturaActualizado.toDouble())
-                 Toast.makeText(this, "Usuario actualizado con nombre: $nombreActualizado", Toast.LENGTH_LONG).show()
+                // Hacemos el update y mostramos los datos en un Toast.
+
+                val result = dbHelper.updateUser(
+                    ConsultaIDfijo,
+                    nombreActualizado,
+                    correoActualizado,
+                    edadActualizado.toInt(),
+                    pesoActualizado.toDouble(),
+                    alturaActualizado.toDouble()
+                )
+                Toast.makeText(
+                    this,
+                    "Usuario actualizado con nombre: $nombreActualizado",
+                    Toast.LENGTH_LONG
+                ).show()
 
             }
-
-
 
 
         }
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_home -> {
@@ -96,7 +135,6 @@ class UpdateUsuario : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
 
 }

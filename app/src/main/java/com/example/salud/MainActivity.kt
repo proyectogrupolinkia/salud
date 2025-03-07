@@ -10,24 +10,20 @@ import androidx.appcompat.widget.Toolbar
 class MainActivity : AppCompatActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
 
-
-        //Atributos
+        //Botones del MainActivity
         val botonRegistrar = findViewById<Button>(R.id.buttonRegistrar)
         val botonMostrar = findViewById<Button>(R.id.buttonMostrar)
-        //val botonModificar = findViewById<Button>(R.id.buttonModificar)
-        //  val botonEliminar = findViewById<Button>(R.id.buttonEliminar)
         val botonIMC = findViewById<Button>(R.id.buttonIMC)
         val toolbar: Toolbar = findViewById(R.id.toolbar_main)
         setSupportActionBar(toolbar)
 
-
+//Definimos las Activities a las que apuntan los botones.
 
         botonRegistrar.setOnClickListener {
 
@@ -44,20 +40,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, IMCActivity::class.java)
             startActivity(intent)
         }
-//        botonModificar.setOnClickListener {
-//            val intent = Intent(this, ModificarUsuario::class.java)
-//            startActivity(intent)
-//        }
-//
-//        botonEliminar.setOnClickListener {
-//            val intent = Intent (this, EliminarUsuario::class.java)
-//            startActivity(intent)
-        }
-
-
-
 
     }
+
+
+}
 
 
 
