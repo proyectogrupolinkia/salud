@@ -19,12 +19,12 @@ class MostrarUsuario : AppCompatActivity() {
     private lateinit var adapter: MostrarUserAdapter
     private lateinit var recyclerView: RecyclerView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_mostrar_usuario)
+
         dbHelper = SQLiteHelper(this)
         val searchView: SearchView = findViewById(R.id.searchView)
         recyclerView = findViewById(R.id.recyclerView)
@@ -37,16 +37,22 @@ class MostrarUsuario : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Cuando el usuario hace submit, no haremos nada por ahora
                 return false
+
+
             }
             @SuppressLint("Range")
             override fun onQueryTextChange(newText: String?): Boolean {
                 // Filtrar los usuarios según el texto ingresado
                 val cursor = dbHelper.getAllUsers()
                 val users = mutableListOf<User>()
+
                 if (cursor.moveToFirst()) {
                     do {
                         val id = cursor.getInt(cursor.getColumnIndex(SQLiteHelper.COLUMN_ID))
@@ -59,20 +65,27 @@ class MostrarUsuario : AppCompatActivity() {
 
 
 
-                        if (nombre.contains(newText!!, true)) {
+                        if (nombre.contains(newText!!, true)||correo.contains(newText!!, true)) {
                             users.add(User(id, nombre,correo, edad.toInt(),peso.toDouble(),altura.toDouble()))
                         }
-                        if (correo.contains(newText!!, true)) {
-                            users.add(User(id, nombre,correo, edad.toInt(),peso.toDouble(),altura.toDouble()))
-                        }
+
                     } while (cursor.moveToNext())
                 }
 
+
+
                 // Actualizar el RecyclerView con los resultados de búsqueda
                 adapter.updateData(users)
+
+
                 return true
+
+
             }
-        })
+
+        }
+        )
+
 
     } private fun editUser(user: User) {
         val intent = Intent(this, ConsultarUsuario::class.java)
@@ -84,6 +97,12 @@ class MostrarUsuario : AppCompatActivity() {
 
         val IMC = user.calculaIMC(user.peso,user.altura)
         intent.putExtra("USER_IMC",IMC)
+
+        val searchView: SearchView = findViewById(R.id.searchView)
+
+        searchView.setQuery("", false)
+        adapter.updateData(emptyList())
+
         startActivity(intent)
 
     }
@@ -100,6 +119,10 @@ class MostrarUsuario : AppCompatActivity() {
         intent.putExtra("USER_ALTURA", user.altura)
         val IMC = user.calculaIMC(user.peso,user.altura)
         intent.putExtra("USER_IMC",IMC)
+        val searchView: SearchView = findViewById(R.id.searchView)
+
+        searchView.setQuery("", false)
+        adapter.updateData(emptyList())
         startActivity(intent)
 
     }
@@ -114,7 +137,11 @@ class MostrarUsuario : AppCompatActivity() {
 
             dbHelper.deleteUser(user.id)
             Toast.makeText(this, "Usuario eliminado con nombre: ${user.nombre}", Toast.LENGTH_SHORT).show()
+            adapter.updateData(emptyList())
+            val searchView: SearchView = findViewById(R.id.searchView)
 
+            searchView.setQuery("", false)
+            adapter.updateData(emptyList())
             dialog.dismiss()
         }
         builder.setNegativeButton("No") { dialog, _ ->
@@ -123,6 +150,8 @@ class MostrarUsuario : AppCompatActivity() {
         }
         val dialogo = builder.create()
         dialogo.show()
+
+
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -142,9 +171,13 @@ class MostrarUsuario : AppCompatActivity() {
             }
 
             R.id.action_back -> {
+
                 // Finaliza la activity actual para volver a la anterior
+
                 finish()
+
                 true
+
             }
 
             else -> super.onOptionsItemSelected(item)

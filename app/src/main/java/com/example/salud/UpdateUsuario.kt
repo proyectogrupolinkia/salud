@@ -56,12 +56,12 @@ class UpdateUsuario : AppCompatActivity() {
             val pesoActualizado= etViewPesofijo.text.toString()
             val alturaActualizado= etViewAlturafijo.text.toString()
             if (nombreActualizado.isEmpty() || correoActualizado.isEmpty() || edadActualizado.isEmpty() || pesoActualizado.isEmpty() || alturaActualizado.isEmpty()) {
-                Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_LONG)
                     .show()
             } else {
                 // Mostrar los datos en un Toast (o lo que desees hacer con ellos)
                  val result = dbHelper.updateUser(ConsultaIDfijo,nombreActualizado,correoActualizado,edadActualizado.toInt(),pesoActualizado.toDouble(),alturaActualizado.toDouble())
-                 Toast.makeText(this, "Usuario actualizado con nombre: $nombreActualizado", Toast.LENGTH_SHORT).show()
+                 Toast.makeText(this, "Usuario actualizado con nombre: $nombreActualizado", Toast.LENGTH_LONG).show()
 
             }
 

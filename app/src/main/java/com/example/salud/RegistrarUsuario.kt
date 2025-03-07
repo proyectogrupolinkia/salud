@@ -75,7 +75,7 @@ class RegistrarUsuario : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }else{
-                    Toast.makeText(this, "El correo ya está registrado", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "El correo ya está registrado. No se registrará este usuario.", Toast.LENGTH_LONG).show()
                 }
 
             }

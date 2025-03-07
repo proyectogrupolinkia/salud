@@ -28,6 +28,7 @@ class EliminarUsuario : AppCompatActivity() {
             onDeleteClick = { user -> deleteUser(user) })
         recyclerView.adapter = adapter
 
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 // Cuando el usuario hace submit, no haremos nada por ahora
@@ -75,6 +76,7 @@ class EliminarUsuario : AppCompatActivity() {
         Toast.makeText(this, "Usuario eliminado con nombre: ${user.nombre}", Toast.LENGTH_SHORT).show()
 
             dialog.dismiss()
+
         }
         builder.setNegativeButton("No") { dialog, _ ->
             // Cancelar la eliminación y cerrar el diálogo

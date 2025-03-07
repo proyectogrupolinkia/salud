@@ -10,4 +10,6 @@
     <string name="estado_usuario">Estado Usuario</string>
     <string name="calculadora_imc">Calculadora IMC</string>
     <string name="registrar_usuarios">Registrar Usuarios</string>
+    <string name="registrar_usuario">Registrar Usuario</string>
+    <string name="modificar_usuario">Modificar Usuario</string>
 </resources>
