@@ -28,6 +28,7 @@ class IMCActivity : AppCompatActivity() {
             val pesoText = etPeso.text.toString()
             val alturaText = etAltura.text.toString()
 
+            
             if (pesoText.isEmpty() || alturaText.isEmpty()) {
                 tvResultado.text = "Por favor, complete ambos campos"
                 return@setOnClickListener
