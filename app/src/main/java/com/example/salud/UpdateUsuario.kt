@@ -29,6 +29,8 @@ class UpdateUsuario : AppCompatActivity() {
         val etViewAlturafijo = findViewById<TextView>(R.id.etAlturafijo)
         val btActualizar = findViewById<Button>(R.id.btActualizar)
 
+        //Actualizamos los EditText con los valores de la activity anterior
+
         val ConsultaIDfijo= intent.getIntExtra("USER_ID",0)
 
         val ConsultaNombrefijo= intent.getStringExtra("USER_NAME")

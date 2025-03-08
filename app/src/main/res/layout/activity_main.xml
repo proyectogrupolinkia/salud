@@ -7,6 +7,13 @@
     android:layout_marginTop="100dp"
     android:background="@color/white"
     tools:context=".MainActivity">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_menuOp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_fabmenu"
+        app:fabSize="normal"
+        android:backgroundTint="#E7FBCD"/>
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_main"
         android:layout_width="match_parent"
@@ -52,7 +59,7 @@
             style="@style/CustomButton"
             android:layout_width="300dp"
             android:layout_height="75dp"
-            android:text="@string/estado_usuario"
+            android:text="Gestionar Usuarios"
             android:textSize="18sp"
             android:layout_marginBottom="16dp"/>
 

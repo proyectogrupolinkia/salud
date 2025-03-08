@@ -22,6 +22,7 @@ class RegistrarUsuario : AppCompatActivity() {
         setContentView(R.layout.activity_registrar_usuario)
 
         dbHelper = SQLiteHelper(this)
+        //editTexts
 
         val editTextNombre = findViewById<EditText>(R.id.etNombre)
         val editTextCorreo = findViewById<EditText>(R.id.etCorreo)
@@ -29,6 +30,7 @@ class RegistrarUsuario : AppCompatActivity() {
         val editTextPeso = findViewById<EditText>(R.id.etPeso)
         val editTextAltura = findViewById<EditText>(R.id.etAltura)
         val buttonEnviar = findViewById<Button>(R.id.btnEnviar)
+        //Barra del navegador
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -66,7 +68,10 @@ class RegistrarUsuario : AppCompatActivity() {
 
 
             else  {
-                // Mostrar los datos en un Toast (o lo que desees hacer con ellos)
+                // Si el correo no esta registrado, hacemos un insert y mostramos los datos en un Toast,
+                // si no, indicamos que el mail ya existe
+
+
                 val result = dbHelper.insertUser(nombre, correo, edad.toInt(), peso.toDouble(), altura.toDouble())
                 if(result) {
                     Toast.makeText(
@@ -85,6 +90,7 @@ class RegistrarUsuario : AppCompatActivity() {
         }
 
     }
+    //ToolBar de navegacion.
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)

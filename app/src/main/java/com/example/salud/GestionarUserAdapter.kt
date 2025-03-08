@@ -24,12 +24,14 @@ class GestionarUserAdapter(private var users: List<User>,
         val btnEliminar: Button =view.findViewById(R.id.btnEliminar)
 
     }
+    //Creamos el viewHolder
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_user, parent, false)
         return UserViewHolder(view)
     }
+    //Asociamos los datos
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
@@ -44,8 +46,10 @@ class GestionarUserAdapter(private var users: List<User>,
 
 
     }
+    //Obtenemos el tamaño de los datos.
 
     override fun getItemCount(): Int = users.size
+    //Actualizamos los datos del user mediante los eventos.
 
     fun updateData(newUsers: List<User>) {
         users = newUsers

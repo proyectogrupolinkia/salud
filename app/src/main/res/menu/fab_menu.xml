@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mRegistrar"
+        android:title="Registrar Usuario." />
+    <item
+        android:id="@+id/mGestionar"
+        android:title="Gestionar Usuarios."
+        />
+    <item
+        android:id="@+id/mIMC"
+        android:title="Calculadora IMC"
+        />
+
+
+</menu>

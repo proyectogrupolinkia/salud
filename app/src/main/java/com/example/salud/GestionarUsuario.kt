@@ -28,12 +28,15 @@ class GestionarUsuario : AppCompatActivity() {
         dbHelper = SQLiteHelper(this)
         val searchView: SearchView = findViewById(R.id.searchView)
         recyclerView = findViewById(R.id.recyclerView)
+        //Invocamos al adaptodor para hacer la vista del RecyclerView
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = GestionarUserAdapter(emptyList(),onReadClick = { user -> readUser(user) },
             onUpdateClick = { user -> updateUser(user) },
             onDeleteClick = { user -> deleteUser(user) })
         recyclerView.adapter = adapter
 
+//Iniciamos la barra de navegación:
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -86,6 +89,7 @@ class GestionarUsuario : AppCompatActivity() {
         }
         )
 
+        //Al clickar en "consultar"
 
     } private fun readUser(user: User) {
         val intent = Intent(this, ConsultarUsuario::class.java)
@@ -106,6 +110,7 @@ class GestionarUsuario : AppCompatActivity() {
         startActivity(intent)
 
     }
+    //Al clickar en "actualizar"
 
     private fun updateUser(user: User) {
         val intent = Intent(this, UpdateUsuario::class.java)
@@ -126,6 +131,7 @@ class GestionarUsuario : AppCompatActivity() {
         startActivity(intent)
 
     }
+    //Al clickar en "eliminar"
 
     private fun deleteUser(user: User) {
         val builder = AlertDialog.Builder(this)
@@ -154,6 +160,8 @@ class GestionarUsuario : AppCompatActivity() {
 
 
     }
+    //Configuracion de ToolBar
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true

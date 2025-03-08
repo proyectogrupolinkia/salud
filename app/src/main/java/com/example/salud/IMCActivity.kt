@@ -33,6 +33,8 @@ class IMCActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
             val pesoText = etPeso.text.toString()
             val alturaText = etAltura.text.toString()
+            //Verificamos que se hayan completado los campos
+
 
             if (pesoText.isEmpty() || alturaText.isEmpty()) {
                 tvResultado.text = "Por favor, complete ambos campos"
@@ -46,6 +48,7 @@ class IMCActivity : AppCompatActivity() {
                 tvResultado.text = "Ingrese valores numéricos válidos"
                 return@setOnClickListener
             }
+            //Calculamos IMC
 
             val imc = peso / (altura * altura)
             val resultado = when {
@@ -60,6 +63,7 @@ class IMCActivity : AppCompatActivity() {
             actualizarGrafico(chartIMC, imc)
         }
     }
+    //Parte Gráfica en Diagrama de Barras
 
     private fun actualizarGrafico(chart: BarChart, imc: Double) {
         val valoresIMC = listOf(
@@ -84,6 +88,7 @@ class IMCActivity : AppCompatActivity() {
         val data = BarData(dataSet)
         chart.data = data
         chart.invalidate()
+        //labels
 
         val xAxis = chart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
@@ -96,6 +101,8 @@ class IMCActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
     }
+    //Toolkbar de navegación.
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_home -> {
