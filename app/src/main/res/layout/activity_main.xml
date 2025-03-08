@@ -3,97 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
-    android:background="@color/white"
+
+    android:background="#E7FBCD"
     tools:context=".MainActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_main"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#FCFFFE"
-        app:title="Principal"
-        app:titleTextColor="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-
 
     <TextView
         android:id="@+id/tvTitulo"
+        android:paddingTop="42dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/men_principal"
-        android:textSize="26sp"
+        android:text="Panel Administrativo"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp" />
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Boton FAB menu Alejandro -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_menuOp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_fabmenu"
+        app:fabSize="normal"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="#E7FBCD"/>
 
     <LinearLayout
-        android:id="@+id/linearLayoutBotones"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvTitulo"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:background="@color/white">
 
-        <Button
-            android:id="@+id/buttonRegistrar"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Registrar Usuarios"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
 
-        <Button
-            android:id="@+id/buttonMostrar"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Mostrar Usuarios"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/buttonModificar"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Modificar Usuarios"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/buttonEliminar"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Eliminar Usuarios"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
-
-        <Button
-            android:id="@+id/buttonIMC"
-            style="@style/CustomButton"
-            android:layout_width="300dp"
-            android:layout_height="75dp"
-            android:text="Calculadora IMC"
-            android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageViewBalanza"
-        android:layout_width="380dp"
-        android:layout_height="100dp"
-        android:src="@drawable/vascula"
-        android:layout_below="@id/linearLayoutBotones"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="1dp"
-        />
-
 
 </RelativeLayout>
 

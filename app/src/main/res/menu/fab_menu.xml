@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mRegistrar"
+        android:title="Registrar Usuario." />
+    <item
+        android:id="@+id/mMostrar"
+        android:title="Mostrar Usuario."
+        />
+    <item
+        android:id="@+id/mModificar"
+        android:title="Modificar Usuario." />
+    <item
+        android:id="@+id/mEliminar"
+        android:title="Eliminar Usuario." />
+
+</menu>

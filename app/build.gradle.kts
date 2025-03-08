@@ -50,4 +50,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.google.android.material:material:1.9.02")
 
+    //Boton  flotante FAB Alejandro
+    implementation("com.google.android.material:material:1.12.0")
 }
