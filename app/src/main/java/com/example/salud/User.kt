@@ -9,4 +9,5 @@ fun calculaIMC(peso: Double, altura: Double): Double {
     return imc
 }
 
-}//
+}
+//
