@@ -59,7 +59,7 @@ class UpdateUsuario : AppCompatActivity() {
             val alturaActualizado = etViewAlturafijo.text.toString()
             val regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
 
-
+//Mismo Control que en registrarusuario.
             if (nombreActualizado.isEmpty() || correoActualizado.isEmpty() || edadActualizado.isEmpty() || pesoActualizado.isEmpty() || alturaActualizado.isEmpty()) {
                 Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_LONG)
                     .show()
@@ -78,14 +78,14 @@ class UpdateUsuario : AppCompatActivity() {
                 )
                     .show()
 
-            } else if (pesoActualizado.toInt() > 200) {
+            } else if (pesoActualizado.toDouble() > 200) {
                 Toast.makeText(
                     this,
                     "El peso no es correcto, por favor, vuelve a introducirlo.",
                     Toast.LENGTH_SHORT
                 )
                     .show()
-            } else if (alturaActualizado.toInt() > 250 || alturaActualizado.toInt() < 20) {
+            } else if (alturaActualizado.toDouble() > 250 || alturaActualizado.toDouble() < 20) {
                 Toast.makeText(
                     this,
                     "La altura no es correcta, por favor, vuelve a introducirla.",
@@ -93,7 +93,7 @@ class UpdateUsuario : AppCompatActivity() {
                 )
                     .show()
             } else {
-                // Mostrar los datos en un Toast (o lo que desees hacer con ellos)
+                // Mostrar los datos en un Toast
                 val result = dbHelper.updateUser(
                     ConsultaIDfijo,
                     nombreActualizado,
