@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     /**
      * Funcion que desplega todas las opciones programadas al presionar el menu FAB
      * @author Alejandro
@@ -73,12 +74,14 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
+
                 R.id.mGestionar -> {
                     // Acción para la Opción Mostrar
                     val intent = Intent(this, GestionarUsuario::class.java)
                     startActivity(intent)
                     true
                 }
+
                 R.id.mIMC -> {
                     // Acción para la Opción Mostrar
                     val intent = Intent(this, IMCActivity::class.java)

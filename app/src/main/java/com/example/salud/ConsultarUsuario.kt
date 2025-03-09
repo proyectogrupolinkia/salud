@@ -26,24 +26,24 @@ class ConsultarUsuario : AppCompatActivity() {
         val textViewEdadfijo = findViewById<TextView>(R.id.tvEdadfijo)
         val textViewPesofijo = findViewById<TextView>(R.id.tvPesofijo)
         val textViewAlturafijo = findViewById<TextView>(R.id.tvAlturafijo)
-        val textViewIMC=findViewById<TextView>(R.id.tvIMC)
+        val textViewIMC = findViewById<TextView>(R.id.tvIMC)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val ConsultaNombrefijo= intent.getStringExtra("USER_NAME")
-        val ConsultaCorreofijo= intent.getStringExtra("USER_MAIL")
-        val ConsultaEdadfijo= intent.getIntExtra("USER_EDAD",0)
-        val ConsultaPesofijo= intent.getDoubleExtra("USER_PESO",0.0)
-        val ConsultaAlturafijo= intent.getDoubleExtra("USER_ALTURA",0.0)
-        val IMC= intent.getDoubleExtra("USER_IMC",0.0)
+        val ConsultaNombrefijo = intent.getStringExtra("USER_NAME")
+        val ConsultaCorreofijo = intent.getStringExtra("USER_MAIL")
+        val ConsultaEdadfijo = intent.getIntExtra("USER_EDAD", 0)
+        val ConsultaPesofijo = intent.getDoubleExtra("USER_PESO", 0.0)
+        val ConsultaAlturafijo = intent.getDoubleExtra("USER_ALTURA", 0.0)
+        val IMC = intent.getDoubleExtra("USER_IMC", 0.0)
 
-        textViewNombrefijo.text=" "+ConsultaNombrefijo.toString()
-        textViewCorreofijo.text=" "+ConsultaCorreofijo.toString()
-        textViewEdadfijo.text=" "+ConsultaEdadfijo.toString()
-        textViewPesofijo.text=" "+ConsultaPesofijo.toString()+" Kg"
-        textViewAlturafijo.text=" "+ConsultaAlturafijo.toString()+" cms"
-        textViewIMC.text=" "+IMC.toString()
+        textViewNombrefijo.text = " " + ConsultaNombrefijo.toString()
+        textViewCorreofijo.text = " " + ConsultaCorreofijo.toString()
+        textViewEdadfijo.text = " " + ConsultaEdadfijo.toString()
+        textViewPesofijo.text = " " + ConsultaPesofijo.toString() + " Kg"
+        textViewAlturafijo.text = " " + ConsultaAlturafijo.toString() + " cms"
+        textViewIMC.text = " " + IMC.toString()
 
 
     }
@@ -52,6 +52,7 @@ class ConsultarUsuario : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_home -> {

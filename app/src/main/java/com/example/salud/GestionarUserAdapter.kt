@@ -9,19 +9,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class GestionarUserAdapter(private var users: List<User>,
-                           private val onReadClick: (User)-> Unit,
-                           private val onUpdateClick: (User) -> Unit,
-                           private val onDeleteClick: (User) -> Unit) : RecyclerView.Adapter<GestionarUserAdapter.UserViewHolder>() {
+class GestionarUserAdapter(
+    private var users: List<User>,
+    private val onReadClick: (User) -> Unit,
+    private val onUpdateClick: (User) -> Unit,
+    private val onDeleteClick: (User) -> Unit
+) : RecyclerView.Adapter<GestionarUserAdapter.UserViewHolder>() {
 
 
     class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewName: TextView = view.findViewById(R.id.tvName)
         val textViewCorreo: TextView = view.findViewById(R.id.tvCorreo)
 
-        val btnConsultar: Button =view.findViewById(R.id.btnConsultar)
-        val btnModificar: Button =view.findViewById(R.id.btnModificar)
-        val btnEliminar: Button =view.findViewById(R.id.btnEliminar)
+        val btnConsultar: Button = view.findViewById(R.id.btnConsultar)
+        val btnModificar: Button = view.findViewById(R.id.btnModificar)
+        val btnEliminar: Button = view.findViewById(R.id.btnEliminar)
 
     }
     //Creamos el viewHolder
@@ -35,14 +37,12 @@ class GestionarUserAdapter(private var users: List<User>,
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
-        holder.btnConsultar.setOnClickListener {  onReadClick (user)}
-        holder.btnModificar.setOnClickListener {  onUpdateClick (user)}
-        holder.btnEliminar.setOnClickListener {  onDeleteClick (user)}
+        holder.btnConsultar.setOnClickListener { onReadClick(user) }
+        holder.btnModificar.setOnClickListener { onUpdateClick(user) }
+        holder.btnEliminar.setOnClickListener { onDeleteClick(user) }
 
         holder.textViewName.text = user.nombre
         holder.textViewCorreo.text = user.correo
-
-
 
 
     }

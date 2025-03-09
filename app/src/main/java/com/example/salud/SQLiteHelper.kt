@@ -8,7 +8,8 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteOpenHelper
 
 // Clase para manejar la base de datos SQLite
-class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class SQLiteHelper(context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     override fun onCreate(db: SQLiteDatabase?) {
         // Crear tabla en la base de datos
@@ -32,7 +33,13 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
     // Función para insertar un nuevo registro
-    fun insertUser(nombre: String, correo: String, edad: Int, peso: Double, altura: Double): Boolean {
+    fun insertUser(
+        nombre: String,
+        correo: String,
+        edad: Int,
+        peso: Double,
+        altura: Double
+    ): Boolean {
         val db = writableDatabase
         val values = android.content.ContentValues()
 
@@ -48,7 +55,7 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             values.put(COLUMN_PESO, peso)
             values.put(COLUMN_ALTURA, altura)
         }
-        val result= db.insert(TABLE_NAME, null, values)
+        val result = db.insert(TABLE_NAME, null, values)
         return result != -1L
     }
 
@@ -60,7 +67,14 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
 
 
     // Función para actualizar un registro
-    fun updateUser(id: Int, nombre: String, correo: String, edad: Int, peso: Double, altura: Double): Int {
+    fun updateUser(
+        id: Int,
+        nombre: String,
+        correo: String,
+        edad: Int,
+        peso: Double,
+        altura: Double
+    ): Int {
         val db = writableDatabase
         val values = android.content.ContentValues()
         values.put(COLUMN_NOMBRE, nombre)

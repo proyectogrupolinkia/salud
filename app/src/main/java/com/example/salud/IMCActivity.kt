@@ -97,6 +97,7 @@ class IMCActivity : AppCompatActivity() {
         xAxis.granularity = 1f
         xAxis.setLabelCount(etiquetas.size)
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true

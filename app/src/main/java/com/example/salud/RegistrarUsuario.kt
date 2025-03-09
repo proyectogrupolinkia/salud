@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+
 //test
 //sdfsdff
 class RegistrarUsuario : AppCompatActivity() {
@@ -51,40 +52,61 @@ class RegistrarUsuario : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT)
                     .show()
 
-            } else if(!correo.matches(regexCorreo)){
-                Toast.makeText(this, "El correo electrónico no tiene un formato válido", Toast.LENGTH_SHORT)
-                        .show()
-                }else if(edad.toInt()>120){
-                Toast.makeText(this, "La edad no es correcta, por favor, vuelve a introducirla.", Toast.LENGTH_SHORT)
+            } else if (!correo.matches(regexCorreo)) {
+                Toast.makeText(
+                    this,
+                    "El correo electrónico no tiene un formato válido",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
-            }
-            else if(peso.toInt()>200){
-                Toast.makeText(this, "El peso no es correcto, por favor, vuelve a introducirlo.", Toast.LENGTH_SHORT)
+            } else if (edad.toInt() > 120) {
+                Toast.makeText(
+                    this,
+                    "La edad no es correcta, por favor, vuelve a introducirla.",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
-            }else if(altura.toInt()>250|| altura.toInt()<20){
-                Toast.makeText(this, "La altura no es correcta, por favor, vuelve a introducirla.", Toast.LENGTH_SHORT)
+            } else if (peso.toInt() > 200) {
+                Toast.makeText(
+                    this,
+                    "El peso no es correcto, por favor, vuelve a introducirlo.",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
-            }
-
-
-            else  {
+            } else if (altura.toInt() > 250 || altura.toInt() < 20) {
+                Toast.makeText(
+                    this,
+                    "La altura no es correcta, por favor, vuelve a introducirla.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else {
                 // Si el correo no esta registrado, hacemos un insert y mostramos los datos en un Toast,
                 // si no, indicamos que el mail ya existe
 
 
-                val result = dbHelper.insertUser(nombre, correo, edad.toInt(), peso.toDouble(), altura.toDouble())
-                if(result) {
+                val result = dbHelper.insertUser(
+                    nombre,
+                    correo,
+                    edad.toInt(),
+                    peso.toDouble(),
+                    altura.toDouble()
+                )
+                if (result) {
                     Toast.makeText(
                         this,
                         "Usuario insertado con nombre: $nombre",
                         Toast.LENGTH_SHORT
                     ).show()
-                }else{
-                    Toast.makeText(this, "El correo ya está registrado. No se registrará este usuario.", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "El correo ya está registrado. No se registrará este usuario.",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
 
             }
-
 
 
         }
@@ -96,6 +118,7 @@ class RegistrarUsuario : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu_toolbar, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_home -> {
