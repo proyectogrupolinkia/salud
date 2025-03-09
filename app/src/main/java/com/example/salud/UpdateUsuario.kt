@@ -57,8 +57,40 @@ class UpdateUsuario : AppCompatActivity() {
             val edadActualizado = etViewEdadfijo.text.toString()
             val pesoActualizado = etViewPesofijo.text.toString()
             val alturaActualizado = etViewAlturafijo.text.toString()
+            val regexCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$".toRegex()
+
+
             if (nombreActualizado.isEmpty() || correoActualizado.isEmpty() || edadActualizado.isEmpty() || pesoActualizado.isEmpty() || alturaActualizado.isEmpty()) {
                 Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_LONG)
+                    .show()
+            } else if (!correoActualizado.matches(regexCorreo)) {
+                Toast.makeText(
+                    this,
+                    "El correo electrónico no tiene un formato válido",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else if (edadActualizado.toInt() > 120) {
+                Toast.makeText(
+                    this,
+                    "La edad no es correcta, por favor, vuelve a introducirla.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+
+            } else if (pesoActualizado.toInt() > 200) {
+                Toast.makeText(
+                    this,
+                    "El peso no es correcto, por favor, vuelve a introducirlo.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            } else if (alturaActualizado.toInt() > 250 || alturaActualizado.toInt() < 20) {
+                Toast.makeText(
+                    this,
+                    "La altura no es correcta, por favor, vuelve a introducirla.",
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             } else {
                 // Mostrar los datos en un Toast (o lo que desees hacer con ellos)

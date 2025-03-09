@@ -3,15 +3,13 @@
 
     <item
         android:id="@+id/mRegistrar"
-        android:title="Registrar Usuario." />
+        android:title="Registrar Usuarios" />
     <item
         android:id="@+id/mGestionar"
-        android:title="Gestionar Usuarios."
-        />
+        android:title="Gestionar Usuarios" />
     <item
         android:id="@+id/mIMC"
-        android:title="Calculadora IMC"
-        />
+        android:title="Calculadora IMC" />
 
 
 </menu>
